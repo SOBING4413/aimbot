@@ -26,8 +26,8 @@ local TweenService = game:GetService("TweenService")
 
 local UISettings = {
     TabWidth = 160,
-    Size = { 580, 460 },
-    Theme = "VSC Dark High Contrast",
+    Size = { 600, 480 },
+    Theme = "Dark",
     Acrylic = false,
     Transparency = true,
     MinimizeKey = "RightShift",
@@ -203,8 +203,7 @@ local Player = Players.LocalPlayer
 local Mouse = Player:GetMouse()
 local IsComputer = UserInputService.KeyboardEnabled and UserInputService.MouseEnabled
 
-local MonthlyLabels = { "🎅%s❄️", "☃️%s🏂", "🌷%s☘️", "🌺%s🎀", "🐝%s🌼", "🌈%s😎", "🌞%s🏖️", "☀️%s💐", "🌦%s🍁", "🎃%s💀", "🍂%s☕", "🎄%s🎁" }
-local PremiumLabels = { "💫PREMIUM💫", "✨PREMIUM✨", "🌟PREMIUM🌟", "⭐PREMIUM⭐", "🤩PREMIUM🤩" }
+local PremiumLabels = { "PREMIUM", "PREMIUM", "PREMIUM", "PREMIUM", "PREMIUM" }
 
 
 --! Names Handler
@@ -278,8 +277,8 @@ end)
 
 do
     local Window = Fluent:CreateWindow({
-        Title = string.format("%s <b><i>%s</i></b>", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"), #Status > 0 and Status or "🔥FREE🔥"),
-        SubTitle = "Sobing4413",
+        Title = "Open Aimbot",
+        SubTitle = #Status > 0 and Status or "v2.0",
         TabWidth = UISettings.TabWidth,
         Size = UDim2.fromOffset(table.unpack(UISettings.Size)),
         Theme = UISettings.Theme,
@@ -290,11 +289,6 @@ do
     local Tabs = { Aimbot = Window:AddTab({ Title = "Aimbot", Icon = "crosshair" }) }
 
     Window:SelectTab(1)
-
-    Tabs.Aimbot:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/SOBING4413/aimbot"
-    })
 
     local AimbotSection = Tabs.Aimbot:AddSection("Aimbot")
 
@@ -431,7 +425,7 @@ do
             Configuration.AimPartDropdownValues = {}
             AimPartDropdown:SetValues(Configuration.AimPartDropdownValues)
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = "Open Aimbot",
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -538,16 +532,11 @@ do
 
     Tabs.Bots = Window:AddTab({ Title = "Bots", Icon = "bot" })
 
-    Tabs.Bots:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/SOBING4413/aimbot"
-    })
-
     local SpinBotSection = Tabs.Bots:AddSection("SpinBot")
 
     SpinBotSection:AddParagraph({
-        Title = "NOTE",
-        Content = "SpinBot does not function normally in RenderStepped Rendering Mode. Set a different Rendering Mode value than RenderStepped to solve this problem."
+        Title = "Note",
+        Content = "SpinBot does not function normally in RenderStepped mode. Use a different Rendering Mode to fix this."
     })
 
     local SpinBotToggle = SpinBotSection:AddToggle("SpinBot", { Title = "SpinBot", Description = "Toggles the SpinBot", Default = Configuration.SpinBot })
@@ -640,7 +629,7 @@ do
             Configuration.SpinPartDropdownValues = {}
             SpinPartDropdown:SetValues(Configuration.SpinPartDropdownValues)
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = "Open Aimbot",
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -695,11 +684,6 @@ do
     end
 
     Tabs.Checks = Window:AddTab({ Title = "Checks", Icon = "list-checks" })
-
-    Tabs.Checks:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/SOBING4413/aimbot"
-    })
 
     local SimpleChecksSection = Tabs.Checks:AddSection("Simple Checks")
 
@@ -786,7 +770,7 @@ do
 
     AdvancedChecksSection:AddSlider("IgnoredTransparency", {
         Title = "Ignored Transparency",
-        Description = "Target is ignored if its Transparency is > than / = to the set one",
+        Description = "Target is ignored if its Transparency is >= the set value",
         Default = Configuration.IgnoredTransparency,
         Min = 0.1,
         Max = 1,
@@ -897,7 +881,7 @@ do
             local Items = #Configuration.IgnoredPlayers
             IgnoredPlayersDropdown:SetValue({})
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = "Open Aimbot",
                 Content = Items == 0 and "Nothing has been deselected!" or Items == 1 and "1 Item has been deselected!" or string.format("%s Items have been deselected!", Items),
                 Buttons = {
                     {
@@ -924,7 +908,7 @@ do
             Configuration.IgnoredPlayersDropdownValues = Cache
             IgnoredPlayersDropdown:SetValues(Configuration.IgnoredPlayersDropdownValues)
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = "Open Aimbot",
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -1000,7 +984,7 @@ do
             local Items = #Configuration.TargetPlayers
             TargetPlayersDropdown:SetValue({})
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = "Open Aimbot",
                 Content = Items == 0 and "Nothing has been deselected!" or Items == 1 and "1 Item has been deselected!" or string.format("%s Items have been deselected!", Items),
                 Buttons = {
                     {
@@ -1027,7 +1011,7 @@ do
             Configuration.TargetPlayersDropdownValues = Cache
             TargetPlayersDropdown:SetValues(Configuration.TargetPlayersDropdownValues)
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
+                Title = "Open Aimbot",
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -1045,18 +1029,8 @@ do
         Configuration.PremiumCheck = Value
     end)
 
-    PremiumChecksSection:AddParagraph({
-        Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Upgrade to unlock all Options✨\nContact @ttwiz_z via Discord to buy"
-    })
-
     if DEBUG or getfenv().Drawing and getfenv().Drawing.new then
         Tabs.Visuals = Window:AddTab({ Title = "Visuals", Icon = "box" })
-
-        Tabs.Visuals:AddParagraph({
-            Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-            Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/SOBING4413/aimbot"
-        })
 
         local FoVSection = Tabs.Visuals:AddSection("FoV")
 
@@ -1295,11 +1269,6 @@ do
 
     Tabs.Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 
-    Tabs.Settings:AddParagraph({
-        Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Universal Aim Assist Framework✨\nhttps://github.com/SOBING4413/aimbot"
-    })
-
     local UISection = Tabs.Settings:AddSection("UI")
 
     UISection:AddDropdown("Theme", {
@@ -1325,7 +1294,7 @@ do
                 elseif UISettings.ShowWarnings then
                     Window:Dialog({
                         Title = "Warning",
-                        Content = "This Option can be detected! Activate it anyway?",
+                        Content = "This option can be detected. Activate anyway?",
                         Buttons = {
                             {
                                 Title = "Confirm",
@@ -1388,8 +1357,8 @@ do
     local PerformanceSection = Tabs.Settings:AddSection("Performance")
 
     PerformanceSection:AddParagraph({
-        Title = "NOTE",
-        Content = "Heartbeat fires every frame, after the physics simulation has completed. RenderStepped fires every frame, prior to the frame being rendered. Stepped fires every frame, prior to the physics simulation."
+        Title = "Rendering Modes",
+        Content = "Heartbeat: fires after physics. RenderStepped: fires before render. Stepped: fires before physics."
     })
 
     PerformanceSection:AddDropdown("RenderingMode", {
@@ -1401,8 +1370,8 @@ do
             UISettings.RenderingMode = Value
             InterfaceManager:ExportSettings()
             Window:Dialog({
-                Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
-                Content = "Changes will take effect after the Restart!",
+                Title = "Open Aimbot",
+                Content = "Changes will take effect after restart.",
                 Buttons = {
                     {
                         Title = "Confirm"
@@ -1422,12 +1391,12 @@ do
         end)
 
         ConfigurationManager:AddParagraph({
-            Title = string.format("Manager for %s", game.Name),
-            Content = string.format("Universe ID is %s", game.GameId)
+            Title = string.format("Config: %s", game.Name),
+            Content = string.format("Universe ID: %s", game.GameId)
         })
 
         ConfigurationManager:AddButton({
-            Title = "Import Configuration File",
+            Title = "Import Configuration",
             Description = "Loads the Game Configuration File",
             Callback = function()
                 xpcall(function()
@@ -1478,7 +1447,7 @@ do
                         end
                         Window:Dialog({
                             Title = "Configuration Manager",
-                            Content = string.format("Configuration File %s.sobing has been successfully loaded!", game.GameId),
+                            Content = string.format("Config %s.sobing loaded successfully.", game.GameId),
                             Buttons = {
                                 {
                                     Title = "Confirm"
@@ -1488,7 +1457,7 @@ do
                     else
                         Window:Dialog({
                             Title = "Configuration Manager",
-                            Content = string.format("Configuration File %s.sobing could not be found!", game.GameId),
+                            Content = string.format("Config %s.sobing not found.", game.GameId),
                             Buttons = {
                                 {
                                     Title = "Confirm"
@@ -1499,7 +1468,7 @@ do
                 end, function()
                     Window:Dialog({
                         Title = "Configuration Manager",
-                        Content = string.format("An Error occurred when loading the Configuration File %s.sobing", game.GameId),
+                        Content = string.format("Error loading config %s.sobing", game.GameId),
                         Buttons = {
                             {
                                 Title = "Confirm"
@@ -1511,8 +1480,8 @@ do
         })
 
         ConfigurationManager:AddButton({
-            Title = "Export Configuration File",
-            Description = "Overwrites the Game Configuration File",
+            Title = "Export Configuration",
+            Description = "Saves the Game Configuration File",
             Callback = function()
                 xpcall(function()
                     local ExportedConfiguration = { __LAST_UPDATED__ = os.date() }
@@ -1529,7 +1498,7 @@ do
                     getfenv().writefile(string.format("%s.sobing", game.GameId), ExportedConfiguration)
                     Window:Dialog({
                         Title = "Configuration Manager",
-                        Content = string.format("Configuration File %s.sobing has been successfully overwritten!", game.GameId),
+                        Content = string.format("Config %s.sobing saved successfully.", game.GameId),
                         Buttons = {
                             {
                                 Title = "Confirm"
@@ -1539,7 +1508,7 @@ do
                 end, function()
                     Window:Dialog({
                         Title = "Configuration Manager",
-                        Content = string.format("An Error occurred when overwriting the Configuration File %s.sobing", game.GameId),
+                        Content = string.format("Error saving config %s.sobing", game.GameId),
                         Buttons = {
                             {
                                 Title = "Confirm"
@@ -1551,14 +1520,14 @@ do
         })
 
         ConfigurationManager:AddButton({
-            Title = "Delete Configuration File",
+            Title = "Delete Configuration",
             Description = "Removes the Game Configuration File",
             Callback = function()
                 if getfenv().isfile(string.format("%s.sobing", game.GameId)) then
                     getfenv().delfile(string.format("%s.sobing", game.GameId))
                     Window:Dialog({
                         Title = "Configuration Manager",
-                        Content = string.format("Configuration File %s.sobing has been successfully removed!", game.GameId),
+                        Content = string.format("Config %s.sobing deleted.", game.GameId),
                         Buttons = {
                             {
                                 Title = "Confirm"
@@ -1568,7 +1537,7 @@ do
                 else
                     Window:Dialog({
                         Title = "Configuration Manager",
-                        Content = string.format("Configuration File %s.sobing could not be found!", game.GameId),
+                        Content = string.format("Config %s.sobing not found.", game.GameId),
                         Buttons = {
                             {
                                 Title = "Confirm"
@@ -1582,51 +1551,29 @@ do
         ShowWarning = true
     end
 
-    local DiscordWikiSection = Tabs.Settings:AddSection("Discord & Wiki")
+    local LinksSection = Tabs.Settings:AddSection("Links")
 
     if getfenv().setclipboard then
-        DiscordWikiSection:AddButton({
-            Title = "Copy Invite Link",
-            Description = "Paste it into the Browser Tab",
+        LinksSection:AddButton({
+            Title = "Copy Discord Invite",
+            Description = "Copies the invite link to clipboard",
             Callback = function()
                 getfenv().setclipboard("https://discord.gg/77WnqnJcPu")
                 Window:Dialog({
-                    Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
-                    Content = "Invite Link has been copied to the Clipboard!",
+                    Title = "Open Aimbot",
+                    Content = "Discord invite link copied!",
                     Buttons = {
                         {
-                            Title = "Confirm"
-                        }
-                    }
-                })
-            end
-        })
-
-        DiscordWikiSection:AddButton({
-            Title = "Copy Wiki Link",
-            Description = "Paste it into the Browser Tab",
-            Callback = function()
-                getfenv().setclipboard("https://discord.gg/77WnqnJcPu")
-                Window:Dialog({
-                    Title = string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot"),
-                    Content = "Wiki Link has been copied to the Clipboard!",
-                    Buttons = {
-                        {
-                            Title = "Confirm"
+                            Title = "OK"
                         }
                     }
                 })
             end
         })
     else
-        DiscordWikiSection:AddParagraph({
-            Title = "https://discord.gg/77WnqnJcPu",
-            Content = "Paste it into the Browser Tab"
-        })
-
-        DiscordWikiSection:AddParagraph({
-            Title = "https://discord.gg/77WnqnJcPu",
-            Content = "Paste it into the Browser Tab"
+        LinksSection:AddParagraph({
+            Title = "Discord",
+            Content = "https://discord.gg/77WnqnJcPu"
         })
     end
 
@@ -1634,30 +1581,20 @@ do
         if DEBUG then
             Window:Dialog({
                 Title = "Warning",
-                Content = "Running in Debugging Mode. Some Features may not work properly.",
+                Content = "Running in Debug Mode. Some features may not work.",
                 Buttons = {
                     {
-                        Title = "Confirm"
+                        Title = "OK"
                     }
                 }
             })
         elseif ShowWarning then
             Window:Dialog({
                 Title = "Warning",
-                Content = string.format("Your Software does not support all the Features of %s 🔥FREE🔥!", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+                Content = "Your executor does not support all features.",
                 Buttons = {
                     {
-                        Title = "Confirm"
-                    }
-                }
-            })
-        else
-            Window:Dialog({
-                Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-                Content = "✨Upgrade to unlock all Options✨ – Contact @ttwiz_z via Discord to buy",
-                Buttons = {
-                    {
-                        Title = "Confirm"
+                        Title = "OK"
                     }
                 }
             })
@@ -1671,15 +1608,14 @@ end
 local function Notify(Message)
     if Fluent and typeof(Message) == "string" then
         Fluent:Notify({
-            Title = string.format("%s 🔥FREE🔥", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
+            Title = "Open Aimbot",
             Content = Message,
-            SubContent = "By @ttwiz_z",
             Duration = 1.5
         })
     end
 end
 
-Notify("✨Upgrade to unlock all Options✨")
+Notify("Ready")
 
 
 --! Fields Handler
@@ -1715,42 +1651,42 @@ do
                 if Configuration.Aimbot and (Input.KeyCode == Configuration.AimKey or Input.UserInputType == Configuration.AimKey) then
                     if Aiming then
                         FieldsHandler:ResetAimbotFields()
-                        Notify("[Aiming Mode]: OFF")
+                        Notify("Aiming: OFF")
                     else
                         Aiming = true
-                        Notify("[Aiming Mode]: ON")
+                        Notify("Aiming: ON")
                     end
                 elseif Configuration.SpinBot and (Input.KeyCode == Configuration.SpinKey or Input.UserInputType == Configuration.SpinKey) then
                     if Spinning then
                         Spinning = false
-                        Notify("[Spinning Mode]: OFF")
+                        Notify("Spinning: OFF")
                     else
                         Spinning = true
-                        Notify("[Spinning Mode]: ON")
+                        Notify("Spinning: ON")
                     end
                 elseif not DEBUG and getfenv().mouse1click and Configuration.TriggerBot and (Input.KeyCode == Configuration.TriggerKey or Input.UserInputType == Configuration.TriggerKey) then
                     if Triggering then
                         Triggering = false
-                        Notify("[Triggering Mode]: OFF")
+                        Notify("TriggerBot: OFF")
                     else
                         Triggering = true
-                        Notify("[Triggering Mode]: ON")
+                        Notify("TriggerBot: ON")
                     end
                 elseif not DEBUG and getfenv().Drawing and getfenv().Drawing.new and Configuration.FoV and (Input.KeyCode == Configuration.FoVKey or Input.UserInputType == Configuration.FoVKey) then
                     if ShowingFoV then
                         ShowingFoV = false
-                        Notify("[FoV Show]: OFF")
+                        Notify("FoV: OFF")
                     else
                         ShowingFoV = true
-                        Notify("[FoV Show]: ON")
+                        Notify("FoV: ON")
                     end
                 elseif not DEBUG and getfenv().Drawing and getfenv().Drawing.new and (Configuration.ESPBox or Configuration.NameESP or Configuration.HealthESP or Configuration.MagnitudeESP or Configuration.TracerESP) and (Input.KeyCode == Configuration.ESPKey or Input.UserInputType == Configuration.ESPKey) then
                     if ShowingESP then
                         ShowingESP = false
-                        Notify("[ESP Show]: OFF")
+                        Notify("ESP: OFF")
                     else
                         ShowingESP = true
-                        Notify("[ESP Show]: ON")
+                        Notify("ESP: ON")
                     end
                 end
             end
@@ -1762,13 +1698,13 @@ do
             elseif not UserInputService:GetFocusedTextBox() then
                 if Aiming and not Configuration.OnePressAimingMode and (Input.KeyCode == Configuration.AimKey or Input.UserInputType == Configuration.AimKey) then
                     FieldsHandler:ResetAimbotFields()
-                    Notify("[Aiming Mode]: OFF")
+                    Notify("Aiming: OFF")
                 elseif Spinning and not Configuration.OnePressSpinningMode and (Input.KeyCode == Configuration.SpinKey or Input.UserInputType == Configuration.SpinKey) then
                     Spinning = false
-                    Notify("[Spinning Mode]: OFF")
+                    Notify("Spinning: OFF")
                 elseif Triggering and not Configuration.OnePressTriggeringMode and (Input.KeyCode == Configuration.TriggerKey or Input.UserInputType == Configuration.TriggerKey) then
                     Triggering = false
-                    Notify("[Triggering Mode]: OFF")
+                    Notify("TriggerBot: OFF")
                 end
             end
         end)
@@ -2135,7 +2071,7 @@ function ESPLibrary:Initialize(_Character)
         if IsInViewport then
             self.ESPBox.Size = Vector2.new(2350 / HumanoidRootPartPosition.Z, TopPosition.Y - BottomPosition.Y)
             self.ESPBox.Position = Vector2.new(HumanoidRootPartPosition.X - self.ESPBox.Size.X / 2, HumanoidRootPartPosition.Y - self.ESPBox.Size.Y / 2)
-            self.NameESP.Text = Aiming and IsReady(Target) and self.Character == Target and string.format("🎯@%s🎯", self.Player.Name) or string.format("@%s", self.Player.Name)
+            self.NameESP.Text = Aiming and IsReady(Target) and self.Character == Target and string.format("[TARGET] @%s", self.Player.Name) or string.format("@%s", self.Player.Name)
             self.NameESP.Position = Vector2.new(HumanoidRootPartPosition.X, HumanoidRootPartPosition.Y + self.ESPBox.Size.Y / 2 - 25)
             self.HealthESP.Text = string.format("[%s%%]", MathHandler:Abbreviate(Humanoid.Health))
             self.HealthESP.Position = Vector2.new(HumanoidRootPartPosition.X, HeadPosition.Y)
@@ -2195,7 +2131,7 @@ function ESPLibrary:Visualize()
             self.ESPBox.Thickness = Configuration.ESPThickness
             self.ESPBox.Transparency = Configuration.ESPOpacity
             self.ESPBox.Filled = Configuration.ESPBoxFilled
-            self.NameESP.Text = Aiming and IsReady(Target) and self.Character == Target and string.format("🎯@%s🎯", self.Player.Name) or string.format("@%s", self.Player.Name)
+            self.NameESP.Text = Aiming and IsReady(Target) and self.Character == Target and string.format("[TARGET] @%s", self.Player.Name) or string.format("@%s", self.Player.Name)
             self.NameESP.Font = getfenv().Drawing.Fonts and getfenv().Drawing.Fonts[Configuration.NameESPFont]
             self.NameESP.Size = Configuration.NameESPSize
             self.NameESP.Transparency = Configuration.ESPOpacity
