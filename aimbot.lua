@@ -1135,7 +1135,7 @@ OnTeleport = Player.OnTeleport:Connect(function()
     if not Fluent or not getfenv().queue_on_teleport then
         OnTeleport:Disconnect()
     else
-        getfenv().queue_on_teleport('getfenv().loadstring(game:HttpGet("https://raw.githubusercontent.com/ttwizz/Open-Aimbot/master/source.lua", true))()')
+        getfenv().queue_on_teleport('getfenv().loadstring(game:HttpGet("https://raw.githubusercontent.com/SOBING4413/aimbot/refs/heads/main/aimbot.lua", true))()')
         OnTeleport:Disconnect()
     end
 end)
