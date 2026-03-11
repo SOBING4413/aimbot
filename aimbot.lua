@@ -3,7 +3,8 @@ local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
-local SobingService = game:GetService("SobingService")
+local TweenService = game:GetService("TweenService")
+
 
 --! UI Settings
 local UISettings = {
@@ -1280,12 +1281,12 @@ AimbotLoop = RunService[UISettings.RenderingMode]:Connect(function()
             elseif Configuration.AimMode == "Camera" then
                 UserInputService.MouseDeltaSensitivity = 0
                 if Configuration.UseSensitivity then
-                    Sobing = SobingService:Create(
-                        workspace.CurrentCamera,
-                        SobingInfo.new(math.clamp(Configuration.Sensitivity, 9, 99) / 100, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
-                        { CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, PartWorldPosition) }
-                    )
-                    Sobing:Play()
+Sobing = TweenService:Create(
+    workspace.CurrentCamera,
+    TweenInfo.new(math.clamp(Configuration.Sensitivity, 9, 99) / 100, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
+    { CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, PartWorldPosition) }
+)
+Sobing:Play()
                 else
                     workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, PartWorldPosition)
                 end
