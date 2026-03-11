@@ -253,7 +253,7 @@ do
                 return getfenv().loadstring(game:HttpGet("https://twix.cyou/Aimbot.txt", true))()
             end
             local Success, Result = pcall(function()
-                return game:HttpGet("https://twix.cyou/AimbotStatus.json", true)
+                return game:HttpGet("", true)
             end)
             if Success and typeof(Result) == "string" and pcall(HttpService.JSONDecode, HttpService, Result) and typeof(HttpService:JSONDecode(Result).message) == "string" then
                 Status = HttpService:JSONDecode(Result).message
@@ -278,7 +278,7 @@ end)
 do
     local Window = Fluent:CreateWindow({
         Title = "Admin Panel",
-        SubTitle = #Status > 0 and Status or "v2.0",
+        SubTitle = #Status > 0 and Status or "Sobing4413",
         TabWidth = UISettings.TabWidth,
         Size = UDim2.fromOffset(table.unpack(UISettings.Size)),
         Theme = UISettings.Theme,
