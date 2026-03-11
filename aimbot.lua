@@ -277,7 +277,7 @@ end)
 
 do
     local Window = Fluent:CreateWindow({
-        Title = "Open Aimbot",
+        Title = "Admin Panel",
         SubTitle = #Status > 0 and Status or "v2.0",
         TabWidth = UISettings.TabWidth,
         Size = UDim2.fromOffset(table.unpack(UISettings.Size)),
@@ -425,7 +425,7 @@ do
             Configuration.AimPartDropdownValues = {}
             AimPartDropdown:SetValues(Configuration.AimPartDropdownValues)
             Window:Dialog({
-                Title = "Open Aimbot",
+                Title = "Admin Panel",
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -629,7 +629,7 @@ do
             Configuration.SpinPartDropdownValues = {}
             SpinPartDropdown:SetValues(Configuration.SpinPartDropdownValues)
             Window:Dialog({
-                Title = "Open Aimbot",
+                Title = "Admin Panel",
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -881,7 +881,7 @@ do
             local Items = #Configuration.IgnoredPlayers
             IgnoredPlayersDropdown:SetValue({})
             Window:Dialog({
-                Title = "Open Aimbot",
+                Title = "Admin Panel",
                 Content = Items == 0 and "Nothing has been deselected!" or Items == 1 and "1 Item has been deselected!" or string.format("%s Items have been deselected!", Items),
                 Buttons = {
                     {
@@ -908,7 +908,7 @@ do
             Configuration.IgnoredPlayersDropdownValues = Cache
             IgnoredPlayersDropdown:SetValues(Configuration.IgnoredPlayersDropdownValues)
             Window:Dialog({
-                Title = "Open Aimbot",
+                Title = "Admin Panel",
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -984,7 +984,7 @@ do
             local Items = #Configuration.TargetPlayers
             TargetPlayersDropdown:SetValue({})
             Window:Dialog({
-                Title = "Open Aimbot",
+                Title = "Admin Panel",
                 Content = Items == 0 and "Nothing has been deselected!" or Items == 1 and "1 Item has been deselected!" or string.format("%s Items have been deselected!", Items),
                 Buttons = {
                     {
@@ -1011,7 +1011,7 @@ do
             Configuration.TargetPlayersDropdownValues = Cache
             TargetPlayersDropdown:SetValues(Configuration.TargetPlayersDropdownValues)
             Window:Dialog({
-                Title = "Open Aimbot",
+                Title = "Admin Panel",
                 Content = Items == 0 and "Nothing has been cleared!" or Items == 1 and "1 Item has been cleared!" or string.format("%s Items have been cleared!", Items),
                 Buttons = {
                     {
@@ -1370,7 +1370,7 @@ do
             UISettings.RenderingMode = Value
             InterfaceManager:ExportSettings()
             Window:Dialog({
-                Title = "Open Aimbot",
+                Title = "Admin Panel",
                 Content = "Changes will take effect after restart.",
                 Buttons = {
                     {
@@ -1560,7 +1560,7 @@ do
             Callback = function()
                 getfenv().setclipboard("https://discord.gg/77WnqnJcPu")
                 Window:Dialog({
-                    Title = "Open Aimbot",
+                    Title = "Admin Panel",
                     Content = "Discord invite link copied!",
                     Buttons = {
                         {
@@ -1608,7 +1608,7 @@ end
 local function Notify(Message)
     if Fluent and typeof(Message) == "string" then
         Fluent:Notify({
-            Title = "Open Aimbot",
+            Title = "Admin Panel",
             Content = Message,
             Duration = 1.5
         })
